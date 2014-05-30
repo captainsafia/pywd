@@ -2,6 +2,13 @@ Pywd
 =====
 Pywd is a command-line application written in Python. The application generates a password of the desired length and includes a combination of leters (optionally uppercase), numbers, and symbols. The module can also be used to generate passwords from within another application such as Django web application.
 
+Install
+======
+You can use `pip` to install this tool.
+```shell
+pip3 install pywd
+```
+
 Usage
 ======
 From the commandline
