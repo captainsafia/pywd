@@ -1,0 +1,44 @@
+"""
+Usage:
+    pywd --length=<len> [--numbers] [--letters] [--symbols]
+         [-u | --uppercase]
+    pywd -v | --version
+    pywd -h | --help
+
+Examples:
+    pywd --length=14 --numbers --symbols
+    pywd --length=10 --symbols
+    pywd --length=10 --letters --numbers
+
+Options:
+    -h --help       Show this screen.
+    -v --version    Show version.
+"""
+
+from docopt import docopt
+from pywd import __version__
+from string import ascii_lowercase, ascii_uppercase, digits, punctuation
+from random import choice, getrandbits
+
+def generate():
+    version = ".".join(str(x) for x in __version__)
+    arguments = docopt(__doc__, version=version)
+    length = arguments.get("--length")
+    numbers = arguments.get("--numbers")
+    letters = arguments.get("--letters")
+    symbols = arguments.get("--symbols")
+    uppercase = arguments.get("--uppercase")
+    password = ""
+    if numbers and not any([letters, symbols, uppercase]):
+        for x in range(0, length):
+            password += choice(digits)
+    elif (numbers and letters) and not any([symbols, uppercase]):
+        for x in range(0, length):
+            if bool(getrandbits(1)):
+                password += choice(digits)
+            else:
+                password += choice(ascii_letters)
+    elif numbers and letters and symbols and not uppercase:
+        pass
+    print(arguments)
+    print(password)
