@@ -19,5 +19,14 @@ setup(
     packages=['pywd',],
     entry_points={
         'console_scripts': ['pywd=pywd.pywd:generate'],
-    }
+    },
+    classifiers=(
+        'Development Status :: 4 - Beta',
+        'Environment :: Web Environment',
+        'Intended Audience :: Developers',
+        'Intended Audience :: End Users/Desktop',
+        'License :: OSI Approved :: MIT License',
+        'Natural Language :: English',
+        'Programming Language :: Python :: 3.4'
+    )
 )
