@@ -19,6 +19,10 @@ from docopt import docopt
 from pywd import __version__
 from string import ascii_lowercase, ascii_uppercase, digits, punctuation
 from random import choice, getrandbits
+try:
+    from __future__ import print_function
+except ImportError:
+    pass
 
 def generate():
     version = ".".join(str(x) for x in __version__)
@@ -103,4 +107,6 @@ def create_password(length, numbers, letters, symbols, uppercase):
                 password += choice(punctuation)
             else:
                 password += choice(ascii_uppercase)
+    else:
+        raise Exception("The combination you requested is not availible!")
     return password
