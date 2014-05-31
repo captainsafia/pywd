@@ -20,6 +20,7 @@ from pywd import __version__
 from string import ascii_lowercase, ascii_uppercase, digits, punctuation
 from random import choice, getrandbits
 
+
 def generate():
     version = ".".join(str(x) for x in __version__)
     arguments = docopt(__doc__, version=version)
@@ -30,7 +31,8 @@ def generate():
     uppercase = arguments.get("--uppercase")
     print(create_password(length, numbers, letters, symbols, uppercase))
 
-def create_password(length, numbers, letters, symbols, uppercase): 
+
+def create_password(length, numbers, letters, symbols, uppercase):
     password = ""
     if numbers and not any([letters, symbols, uppercase]):
         for x in range(0, length):
