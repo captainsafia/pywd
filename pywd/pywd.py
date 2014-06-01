@@ -110,5 +110,5 @@ def create_password(length, numbers, letters, symbols, uppercase):
             else:
                 password += choice(ascii_uppercase)
     else:
-        raise Exception("The combination you requested is not availible!")
+        raise Exception("The combination you requested is not available!")
     return password
